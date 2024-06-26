@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PATIENT'S LOGIN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+
+<body>
+    <div class="top">
+            <h1>सतर्क<span>Kshetra</span></h1>
+    </div>
+    
+
+    <div class="logout_bar">
+        <a class="logout" href="{% url "logout" %}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg> Log Out</a>
+    </div>
+
+    <div class="container">
+        <div class="direction">
+            <a class="element" id="home" href="{% url "Homepage" %}">
+                <span class="link-text"><div class="text">Home</div></span>
+                <div class="progress-bar"></div>
+            </a>
+        </div>
+        <div class="direction">
+            <a class="element" id="profile" href="{% url "display_dashboard" %}">
+                <span class="link-text"><div class="text">Profile</div></span>
+                <div class="progress-bar"></div>
+            </a>
+        </div>
+        <div class="direction">
+            <a class="element" id="predict" href="{% url "prediction_form" %}">
+                <span class="link-text"><div class="text">Predict Symptoms</div></span>
+                <div class="progress-bar"></div>
+            </a>
+        </div>
+    </div>
+    <div class="imgc"><img src="{% static 'img/dashboard_img2.png' %}"></div>  
+
+
+    
+    <h3>Reports</h3>
+    <table>
+        <thead>
+        <tr>
+        <th>Sr No.</th>
+        <th>Blood Group</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Predicted Disease</th>
+        <th>Probability</th>
+        <th>Show</th>
+        </tr>
+        </thead>
+        <tbody> 
+        {% for user_input in data %}
+        <tr>
+        <td>{{ user_input.s_no }}</td>
+        <td>{{ user_input.blood_grp }}</td>
+        <td>{{ user_input.date }}</td>
+        <td>{{ user_input.time }}</td>
+        <td>{{ user_input.disease1 }}</td>
+        <td>{{ user_input.probability1 }} </td>
+        <td><a href="{% url 'object_detection_result' user_input.id %}" class="btn btn-primary">Objects Detector</a>
+        </td>
+        <!-- <td>{{ user_input.disease1 }} {{user_input.probability1 }}</td>
+        <td>{{ user_input.disease2 }} {{user_input.probability2 }}</td> -->
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        
+        {% if not data %}
+        <p>No records found.</p>
+        {% endif %}
+    
+</body>
+</html>

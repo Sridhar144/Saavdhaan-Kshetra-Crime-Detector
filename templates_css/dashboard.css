@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.top {
+    text-align: center;
+    height: 50px;
+    background-color: #106eea; 
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.top h1 {
+    
+    color: #fff; 
+    font-family: "Poppins", sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h3
+{
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.logout_bar {
+    background-color: #106eea; 
+    margin-top: 0;
+}
+
+.logout {
+    margin-top: 0;
+    margin-left: 1345px;
+    width: 30px;
+    color: #fff; 
+    font-size: 24px;
+}
+
+
+
+.direction {
+    padding: 30px;
+    display: block;
+    clear: both;
+}
+
+
+.element {
+    font-family: Arial, sans-serif;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    
+    background-color: whitesmoke;
+    
+    
+    width: 250px; 
+    height: 20px;
+    display: block;
+}
+
+.element .text {
+    color: black;
+    position: relative; /* Make sure the z-index works */
+    z-index: 1;
+}
+
+.element:hover .text {
+    color: rgb(255, 255, 255);
+    z-index: 2;
+}
+
+/* Add the following CSS code */
+
+
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 40px;
+    background-color: #106eea;
+    transition: width 0.3s ease;
+    
+}
+
+.element:hover .progress-bar {
+    width: 100%;
+}
+
+.imgc{
+    position: absolute;
+    left: 950px;
+    top: 130px;
+    margin: 0;
+    border: 0;
+    width: 490px;
+}
+
+img {
+    padding-top: 10px;
+    width: 90%;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; 
+}
+
+
+thead {
+    background-color: #0074bf; 
+    color: white; 
+}
+
+
+th {
+    padding: 10px;
+    text-align: left;
+}
+
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc; /* Add a bottom border to separate rows */
+}

@@ -1,0 +1,23 @@
+<!-- object_detection_result.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection Results</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> {% endcomment %}
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Object Detection Results</h1>
+        <div class="image-container text-center">
+            <img src="data:image/jpeg;base64,{{ processed_image_base64 }}" class="img-fluid" alt="Processed Image">
+        </div>
+        <div class="table-container mt-4">
+            <h2>Detected Objects</h2>
+            {{ df_html|safe }}
+        </div>
+    </div>
+</body>
+</html>

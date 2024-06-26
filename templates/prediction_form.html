@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'prediction_form.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <title>Prediction Form</title>
+</head>
+<body>
+    <div class="top">
+        <h1>सतर्क<span>Kshetra</span></h1>
+    </div>
+    <form action="/prediction_form/save" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-container" id="firstblock">
+            <div class="image1">
+                <img id="id1" src="{% static 'img/prediction_img1.jpg' %}">
+            </div>    
+            <select name="blood_group" id="blood_group" class="input-field">
+                <option value="" disabled selected hidden>Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+
+        
+        
+        <div class="input-container">
+            <select name="work_condition" id="work_condition" class="input-field">
+                <option value="" disabled selected hidden>Select Work Condition</option>
+                <option value="Office">Office</option>
+                <option value="Factory">Factory</option>
+                <option value="Construction">Construction</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="input-container">
+            <input type="text" name="city" id="city" class="input-field" placeholder="City">
+        </div>
+        
+        <div class="input-container">
+            <input type="number" name="age" id="age" class="input-field" placeholder="Age">
+        </div>
+
+        <label for="image" class="custom-file-upload">
+            Choose File
+        </label>
+                
+        <input type="file" name="image" id="image" onchange="displayImage(this)" style="display: none;">
+        <br>
+                
+        <div class="imgp">
+            <img id="id2" src="#" alt="Selected Image Preview" style="display: none;">
+        </div>
+        
+        <!-- Move the Upload Image button here -->
+        <div id="upload">
+            <input id="up" type="submit" value="Upload Image">
+        </div>
+        
+    </form>
+    <script>
+        function displayImage(input) {
+            var imagePreview = document.getElementById('id2');
+            var uploadDiv = document.getElementById('upload');
+    
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+    
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    // Show the image preview
+                    imagePreview.style.display = 'block';
+                    // Show the upload button
+                    uploadDiv.style.display = 'block';
+                };
+    
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                // Hide the image preview and the upload button if no file is selected
+                imagePreview.style.display = 'none';
+                uploadDiv.style.display = 'none';
+            }
+        }
+    </script>
+    
+</body>
+</html>
