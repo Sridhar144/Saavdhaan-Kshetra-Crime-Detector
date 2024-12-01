@@ -11,7 +11,7 @@ def draw_borders(pillow_image, bounding, color, image_size, caption='', confiden
 
     font_size = width * height // 22000 if width * height > 400000 else 12
 
-    font = ImageFont.truetype(r'C:/Users/Admin/AppData/Local/Microsoft/Windows/Fonts/ARLRDBD.TTF', 22)
+    font = ImageFont.truetype(r'C:/Windows/Fonts/ARIALNB.TTF', 22)
     draw.text((bounding.normalized_vertices[0].x * width,
                bounding.normalized_vertices[0].y * height), font=font, text=caption, fill=color)
     draw.text((bounding.normalized_vertices[0].x * width, bounding.normalized_vertices[0].y *

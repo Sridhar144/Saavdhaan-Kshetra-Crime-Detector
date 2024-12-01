@@ -6,6 +6,7 @@ __pycache__/
 # C extensions
 *.so
 .json
+google_vision.json
 peppy-citron-421415-d6e0bc494625.json
 # Distribution / packaging
 .Python

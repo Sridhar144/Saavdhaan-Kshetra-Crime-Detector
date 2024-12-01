@@ -10,7 +10,7 @@ from .Pillow_Utility import draw_borders, Image
 
 def object_detection(np_image):
     current_directory = os.path.dirname(os.path.abspath(__file__))
-    credential_path = os.path.join(current_directory, "peppy-citron-421415-d6e0bc494625.json")
+    credential_path = os.path.join(current_directory, "google_vision.json")
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path
     client = vision_v1.ImageAnnotatorClient()
 
